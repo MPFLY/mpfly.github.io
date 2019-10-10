@@ -87,7 +87,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="MPFLY" type="application/atom+xml">
+  <link rel="alternate" href="/atom.xml" title="老米的世界" type="application/atom+xml">
 
 
 
@@ -96,13 +96,13 @@
 
 <meta name="description" content="Stay Hungry,Stay Foolish">
 <meta property="og:type" content="website">
-<meta property="og:title" content="MPFLY">
+<meta property="og:title" content="老米的世界">
 <meta property="og:url" content="http://mpfly.github.io/page/2/index.html">
-<meta property="og:site_name" content="MPFLY">
+<meta property="og:site_name" content="老米的世界">
 <meta property="og:description" content="Stay Hungry,Stay Foolish">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MPFLY">
+<meta name="twitter:title" content="老米的世界">
 <meta name="twitter:description" content="Stay Hungry,Stay Foolish">
 
 
@@ -139,7 +139,7 @@
 
 
 
-  <title>MPFLY</title>
+  <title>老米的世界</title>
   
 
 
@@ -170,7 +170,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">MPFLY</span>
+        <span class="site-title">老米的世界</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -312,16 +312,227 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/07/15/VSCode插件/">
+    <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/07/23/微信小程序canvas压缩/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
       <meta itemprop="description" content>
       <meta itemprop="image" content="https://mpfly.github.io/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/23/微信小程序canvas压缩/" itemprop="url">微信小程序canvas压缩</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-23T12:30:00+08:00">
+                2019-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-updated">
+              &nbsp; | &nbsp; 更新于
+              <time itemprop="dateUpdated" datetime="2019-09-05T22:06:13+08:00" content="2019-09-05">
+                2019-09-05
+              </time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/微信/" itemprop="url" rel="index">
+                    <span itemprop="name">微信</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/23/微信小程序canvas压缩/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/23/微信小程序canvas压缩/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  892
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          最近在开发小程序，需要使用压缩图片，遂做出如下总结。
+👇👇👇
+1. wxml首先需要在wxml文件中写一个&lt;canvas&gt;&lt;/canvas&gt;。给一个绝对定位样式，这样会隐藏到页面中。不过我习惯在调试的时候，让其显示出来。等调试ok之后，再将其隐藏起来。
+1&lt;can
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/07/23/微信小程序canvas压缩/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/07/15/VSCode插件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="老米的世界">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://mpfly.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="老米的世界">
     </span>
 
     
@@ -541,13 +752,13 @@ Auto Rename Tag
     <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/06/17/机油知识总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
       <meta itemprop="description" content>
       <meta itemprop="image" content="https://mpfly.github.io/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
     </span>
 
     
@@ -751,13 +962,13 @@ Auto Rename Tag
     <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/06/10/《人类简史》笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
       <meta itemprop="description" content>
       <meta itemprop="image" content="https://mpfly.github.io/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
     </span>
 
     
@@ -973,13 +1184,13 @@ Auto Rename Tag
     <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/05/25/ES6中新增的处理字符串的方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
       <meta itemprop="description" content>
       <meta itemprop="image" content="https://mpfly.github.io/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
     </span>
 
     
@@ -1196,13 +1407,13 @@ fromIndex
     <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/05/17/微信JSSDK使用步骤/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
       <meta itemprop="description" content>
       <meta itemprop="image" content="https://mpfly.github.io/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
     </span>
 
     
@@ -1405,13 +1616,13 @@ fromIndex
     <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/05/15/人生第一次和第二次事故/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
       <meta itemprop="description" content>
       <meta itemprop="image" content="https://mpfly.github.io/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
     </span>
 
     
@@ -1615,13 +1826,13 @@ fromIndex
     <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/05/15/车辆保险小记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
       <meta itemprop="description" content>
       <meta itemprop="image" content="https://mpfly.github.io/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
     </span>
 
     
@@ -1825,13 +2036,13 @@ fromIndex
     <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/04/08/JS数组高级操作(下)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
       <meta itemprop="description" content>
       <meta itemprop="image" content="https://mpfly.github.io/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
     </span>
 
     
@@ -2040,13 +2251,13 @@ fromIndex
     <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/04/08/JS数组高级操作(上)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
       <meta itemprop="description" content>
       <meta itemprop="image" content="https://mpfly.github.io/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MPFLY">
+      <meta itemprop="name" content="老米的世界">
     </span>
 
     
@@ -2238,221 +2449,6 @@ fromIndex
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mpfly.github.io/2019/04/04/PC端图片预览——galpop.js/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MPFLY">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="https://mpfly.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MPFLY">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/04/PC端图片预览——galpop.js/" itemprop="url">PC端图片预览——galpop.js</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-04T00:00:00+08:00">
-                2019-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-updated">
-              &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-09-05T22:06:13+08:00" content="2019-09-05">
-                2019-09-05
-              </time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jquery插件/" itemprop="url" rel="index">
-                    <span itemprop="name">jquery插件</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/04/PC端图片预览——galpop.js/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/04/PC端图片预览——galpop.js/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.1k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          之前在项目中使用过一个基于 jquery 的图片预览插件—— jquery.galpop.js，甚是好用。并对它念念不忘🎈🎈🎈。今天来回顾一下，并总结一点使用方法。
-1. 介绍该插件由Richard Hung制作，Github地址，官方介绍及使用教程。
-2. 可选参数
-
-
-参数
-默认值
-可选值
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/04/PC端图片预览——galpop.js/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2492,9 +2488,9 @@ fromIndex
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://mpfly.github.io/images/avatar.jpg" alt="MPFLY">
+              <img class="site-author-image" itemprop="image" src="https://mpfly.github.io/images/avatar.jpg" alt="老米的世界">
             
-              <p class="site-author-name" itemprop="name">MPFLY</p>
+              <p class="site-author-name" itemprop="name">老米的世界</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -2505,7 +2501,7 @@ fromIndex
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-count">88</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2618,7 +2614,7 @@ fromIndex
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">MPFLY</span>
+  <span class="author" itemprop="copyrightHolder">老米的世界</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -2628,7 +2624,7 @@ fromIndex
     
       <span class="post-meta-item-text">博客全站共&#58;</span>
     
-    <span title="博客全站共">70.1k</span>
+    <span title="博客全站共">77.8k</span>
   
 </div>
 
