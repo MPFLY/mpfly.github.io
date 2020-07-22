@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="1. 博客底部标签样式只需要修改模板/themes/next/layout/_macro/post.swig，搜索 rel=&amp;quot;tag&amp;quot;&amp;gt;#，将 # 换成&amp;lt;i class=&amp;quot;fa fa-tag&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; 2. 文章结束标志在路径 \themes\next\layout\_macro 中新建 passage-end-tag.swi">
+<meta name="description" content="在17年的时候，我通过Hexo自己搞了一个博客，点击访问我的博客。自己也一直在该博客上更新文章，主要写一些技术分享、生活感悟等类型的文章。相信有很多人都对Hexo有所耳闻，今天我们就Hexo下的Next主题的配置写一个小的总结，其中包含了一些最基本的如：打赏、评论、字数统计等功能。 如果你已经创建了你的个人博客，却苦于没有一个好看和好用的主题，就快来学习吧。我将每一个功能需要修改的文件路径都已说明">
 <meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo使用Next主题的配置">
 <meta property="og:url" content="http://mpfly.github.io/2019/08/21/Hexo使用Next主题的配置/index.html">
 <meta property="og:site_name" content="老米的世界">
-<meta property="og:description" content="1. 博客底部标签样式只需要修改模板/themes/next/layout/_macro/post.swig，搜索 rel=&amp;quot;tag&amp;quot;&amp;gt;#，将 # 换成&amp;lt;i class=&amp;quot;fa fa-tag&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; 2. 文章结束标志在路径 \themes\next\layout\_macro 中新建 passage-end-tag.swi">
+<meta property="og:description" content="在17年的时候，我通过Hexo自己搞了一个博客，点击访问我的博客。自己也一直在该博客上更新文章，主要写一些技术分享、生活感悟等类型的文章。相信有很多人都对Hexo有所耳闻，今天我们就Hexo下的Next主题的配置写一个小的总结，其中包含了一些最基本的如：打赏、评论、字数统计等功能。 如果你已经创建了你的个人博客，却苦于没有一个好看和好用的主题，就快来学习吧。我将每一个功能需要修改的文件路径都已说明">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5308475-51f087ce1f1903a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-09-05T14:06:13.308Z">
+<meta property="og:updated_time" content="2019-10-24T08:59:36.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo使用Next主题的配置">
-<meta name="twitter:description" content="1. 博客底部标签样式只需要修改模板/themes/next/layout/_macro/post.swig，搜索 rel=&amp;quot;tag&amp;quot;&amp;gt;#，将 # 换成&amp;lt;i class=&amp;quot;fa fa-tag&amp;quot;&amp;gt;&amp;lt;/i&amp;gt; 2. 文章结束标志在路径 \themes\next\layout\_macro 中新建 passage-end-tag.swi">
+<meta name="twitter:description" content="在17年的时候，我通过Hexo自己搞了一个博客，点击访问我的博客。自己也一直在该博客上更新文章，主要写一些技术分享、生活感悟等类型的文章。相信有很多人都对Hexo有所耳闻，今天我们就Hexo下的Next主题的配置写一个小的总结，其中包含了一些最基本的如：打赏、评论、字数统计等功能。 如果你已经创建了你的个人博客，却苦于没有一个好看和好用的主题，就快来学习吧。我将每一个功能需要修改的文件路径都已说明">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5308475-51f087ce1f1903a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -357,8 +357,8 @@
           
             <span class="post-updated">
               &nbsp; | &nbsp; 更新于
-              <time itemprop="dateUpdated" datetime="2019-09-05T22:06:13+08:00" content="2019-09-05">
-                2019-09-05
+              <time itemprop="dateUpdated" datetime="2019-10-24T16:59:36+08:00" content="2019-10-24">
+                2019-10-24
               </time>
             </span>
           
@@ -424,7 +424,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3.3k
+                  3.5k
                 </span>
               
 
@@ -440,7 +440,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  16
+                  17
                 </span>
               
             </div>
@@ -461,7 +461,10 @@
       
 
       
-        <h2 id="1-博客底部标签样式"><a href="#1-博客底部标签样式" class="headerlink" title="1. 博客底部标签样式"></a>1. 博客底部标签样式</h2><p>只需要修改模板<code>/themes/next/layout/_macro/post.swig</code>，搜索 <code>rel=&quot;tag&quot;&gt;#</code>，将 # 换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></p>
+        <p>在17年的时候，我通过Hexo自己搞了一个博客，<a href="https://mpfly.github.io">点击访问我的博客</a>。自己也一直在该博客上更新文章，主要写一些技术分享、生活感悟等类型的文章。相信有很多人都对Hexo有所耳闻，今天我们就Hexo下的Next主题的配置写一个小的总结，其中包含了一些最基本的如：打赏、评论、字数统计等功能。</p>
+<p>如果你已经创建了你的个人博客，却苦于没有一个<strong>好看</strong>和<strong>好用</strong>的主题，就快来学习吧。我将每一个功能需要修改的文件路径都已说明，只要跟着我的教程一步步来配置，相信你的Hexo博客将会焕然一新。</p>
+<p>下面让我们来一探究竟！</p>
+<h2 id="1-博客底部标签样式"><a href="#1-博客底部标签样式" class="headerlink" title="1. 博客底部标签样式"></a>1. 博客底部标签样式</h2><p>只需要修改模板<code>/themes/next/layout/_macro/post.swig</code>，搜索 <code>rel=&quot;tag&quot;&gt;#</code>，将 # 换成<code>&lt;i class=&quot;fa fa-tag&quot;&gt;&lt;/i&gt;</code></p>
 <h2 id="2-文章结束标志"><a href="#2-文章结束标志" class="headerlink" title="2. 文章结束标志"></a>2. 文章结束标志</h2><p>在路径 <code>\themes\next\layout\_macro</code> 中新建 <code>passage-end-tag.swig</code> 文件,并添加以下内容：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% if not is_index %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;</span>-------------本文结束<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"fa fa-paw"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>感谢您的阅读-------------<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>接着打开<code>\themes\next\layout\_macro\post.swig</code>文件，在<code>post-body</code> 之后(<code>END POST BODY</code>)， <code>post-footer</code> 之前添加如代码：</p>
@@ -488,6 +491,7 @@
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.post-body</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$font</span>-family-posts;</span><br><span class="line">  <span class="attribute">font-size</span> <span class="number">16px</span>;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    <span class="attribute">word-break</span>: break-word;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="6-修改作者头像鼠标上移旋转"><a href="#6-修改作者头像鼠标上移旋转" class="headerlink" title="6. 修改作者头像鼠标上移旋转"></a>6. 修改作者头像鼠标上移旋转</h2><p>打开<code>\themes\next\source\css\_common\components\sidebar\sidebar-author.styl</code>，在里面添加如下代码：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.site-author-image</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">cursor</span> pointer;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="variable">$site</span>-author-image-padding;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="variable">$site</span>-author-image-width;</span><br><span class="line">  <span class="attribute">height</span>: <span class="variable">$site</span>-author-image-height;</span><br><span class="line">  <span class="attribute">border</span>: <span class="variable">$site</span>-author-image-border-width solid <span class="variable">$site</span>-author-image-border-color;</span><br><span class="line">  <span class="comment">/* 头像圆形 */</span></span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: inset <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#333</span>sf;</span><br><span class="line">  <span class="comment">/* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束 </span></span><br><span class="line"><span class="comment">    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  -webkit-transition: -webkit-transform .5s ease-out;</span><br><span class="line">  -moz-transition: -moz-transform .5s ease-out;</span><br><span class="line">  transition: transform .5s ease-out;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">img</span>:hover &#123;</span><br><span class="line">  <span class="comment">/* 鼠标经过停止头像旋转 </span></span><br><span class="line"><span class="comment">  -webkit-animation-play-state:paused;</span></span><br><span class="line"><span class="comment">  animation-play-state:paused;*/</span></span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  -webkit-<span class="attribute">transform</span>: rotateZ(<span class="number">360deg</span>);</span><br><span class="line">  -moz-<span class="attribute">transform</span>: rotateZ(<span class="number">360deg</span>);</span><br><span class="line">  <span class="attribute">transform</span>: rotateZ(<span class="number">360deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* Z 轴旋转动画 */</span></span><br><span class="line">@-webkit-keyframes play &#123;</span><br><span class="line">  <span class="number">0%</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">transform</span>: rotateZ(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span> &#123;</span><br><span class="line">    -webkit-<span class="attribute">transform</span>: rotateZ(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@-moz-keyframes play &#123;</span><br><span class="line">  <span class="number">0%</span> &#123;</span><br><span class="line">    -moz-<span class="attribute">transform</span>: rotateZ(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span> &#123;</span><br><span class="line">    -moz-<span class="attribute">transform</span>: rotateZ(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes play &#123;</span><br><span class="line">  <span class="number">0%</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: rotateZ(<span class="number">0deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="number">100%</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: rotateZ(-<span class="number">360deg</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>asd</p>
 <h2 id="7-代码样式——包括代码块和多行代码"><a href="#7-代码样式——包括代码块和多行代码" class="headerlink" title="7. 代码样式——包括代码块和多行代码"></a>7. 代码样式——包括代码块和多行代码</h2><p>打开<code>\themes\next\source\css\_custom\custom.styl</code>,向里面加入：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">code</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#ff7600</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fbf7f8</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">2px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#d6d6d6</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 大代码块的自定义样式</span></span><br><span class="line"><span class="selector-class">.highlight</span>, pre &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">5px</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.highlight</span>, <span class="selector-tag">code</span>, pre &#123;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#d6d6d6</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.highlight</span> <span class="selector-class">.line</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">24px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="8-站点访问量"><a href="#8-站点访问量" class="headerlink" title="8. 站点访问量"></a>8. 站点访问量</h2><p><strong>较低版本的<code>next</code>没有内置<code>busuanzi</code>，推荐以下方法</strong></p>
@@ -517,6 +521,7 @@
 <p><strong>版本较高的内置的<code>busuanzi</code></strong></p>
 <p>只需要在主题配置文件中修改如下：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show PV/UV of the website/page with busuanzi.</span></span><br><span class="line"><span class="comment"># Get more information on http://ibruce.info/2015/04/04/busuanzi/</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="comment"># count values only if the other configs are false</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># custom uv span for the whole site</span></span><br><span class="line"><span class="attr">  site_uv:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  site_uv_header:</span> <span class="string">&lt;i</span> <span class="string">class="fa</span> <span class="string">fa-user"&gt;&lt;/i&gt;</span> <span class="string">本站访问量</span></span><br><span class="line"><span class="attr">  site_uv_footer:</span></span><br><span class="line">  <span class="comment"># custom pv span for the whole site</span></span><br><span class="line"><span class="attr">  site_pv:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  site_pv_header:</span> <span class="string">&lt;i</span> <span class="string">class="fa</span> <span class="string">fa-eye"&gt;&lt;/i&gt;</span> <span class="string">本站访客数</span></span><br><span class="line"><span class="attr">  site_pv_footer:</span></span><br><span class="line">  <span class="comment"># custom pv span for one page only</span></span><br><span class="line"><span class="attr">  page_pv:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  page_pv_header:</span> <span class="string">&lt;i</span> <span class="string">class="fa</span> <span class="string">fa-file-o"&gt;&lt;/i&gt;</span> <span class="string">文章阅读量</span></span><br><span class="line"><span class="attr">  page_pv_footer:</span></span><br></pre></td></tr></table></figure>
+<p>asd</p>
 <h2 id="9-全站字数统计"><a href="#9-全站字数统计" class="headerlink" title="9. 全站字数统计"></a>9. 全站字数统计</h2><p><strong>针对较低版本的<code>next</code>，推荐一下方法</strong></p>
 <ol>
 <li><p>切换到根目录下，然后运行如下代码：</p>
@@ -570,8 +575,10 @@
 <p>这样在打开文章时，会自动弹出密码输入框。</p>
 <h2 id="13-修改打赏字体不闪动"><a href="#13-修改打赏字体不闪动" class="headerlink" title="13. 修改打赏字体不闪动"></a>13. 修改打赏字体不闪动</h2><p>修改文件<code>next/source/css/_common/components/post/post-reward.styl</code>，然后注释其中的函数<code>wechat:hover</code>和<code>alipay:hover</code>，如下：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 注释文字闪动函数</span></span><br><span class="line"><span class="comment"> #wechat:hover p&#123;</span></span><br><span class="line"><span class="comment">    animation: roll 0.1s infinite linear;</span></span><br><span class="line"><span class="comment">    -webkit-animation: roll 0.1s infinite linear;</span></span><br><span class="line"><span class="comment">    -moz-animation: roll 0.1s infinite linear;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"> #alipay:hover p&#123;</span></span><br><span class="line"><span class="comment">   animation: roll 0.1s infinite linear;</span></span><br><span class="line"><span class="comment">    -webkit-animation: roll 0.1s infinite linear;</span></span><br><span class="line"><span class="comment">    -moz-animation: roll 0.1s infinite linear;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>asd </p>
 <h2 id="14-添加友情链接"><a href="#14-添加友情链接" class="headerlink" title="14. 添加友情链接"></a>14. 添加友情链接</h2><p>打开主题配置文件修改成这样就行了(links里面写你想要的链接)：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">links_icon:</span> <span class="string">link</span></span><br><span class="line"><span class="attr">links_title:</span> <span class="string">友情链接</span></span><br><span class="line"><span class="comment"># links_layout: block</span></span><br><span class="line"><span class="attr">links_layout:</span> <span class="string">inline</span></span><br><span class="line"><span class="attr">links:</span></span><br><span class="line">  <span class="string">慧行说:</span> <span class="attr">https://www.liuyude.com/</span></span><br><span class="line">  <span class="string">张鑫旭:</span> <span class="attr">https://www.zhangxinxu.com/</span></span><br></pre></td></tr></table></figure>
+<p>asd</p>
 <h2 id="15-评论"><a href="#15-评论" class="headerlink" title="15. 评论"></a>15. 评论</h2><p>我使用Valine来进行评论，具体的步骤如下：</p>
 <ol>
 <li><p>在<a href="[https://leancloudblog.com](https://leancloudblog.com/">leanCloud</a>)上注册一个账号</p>
@@ -614,6 +621,7 @@
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">search.xml</span></span><br><span class="line"><span class="attr">  field:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">  format:</span> <span class="string">html</span></span><br><span class="line"><span class="attr">  limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
 <p>并修改数据</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>asd</p>
 </li>
 </ol>
 <h2 id="18-阅读次数"><a href="#18-阅读次数" class="headerlink" title="18. 阅读次数"></a>18. 阅读次数</h2><p>打开主题配置文件<code>/theme/next/_config.yml</code>修改配置如下</p>
@@ -626,14 +634,18 @@
 </ul>
 <h2 id="19-配置背景动画"><a href="#19-配置背景动画" class="headerlink" title="19. 配置背景动画"></a>19. 配置背景动画</h2><p>打开主题配置文件<code>/theme/next/_config.yml</code>修改配置如下：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Canvas-nest</span></span><br><span class="line"><span class="attr">canvas_nest:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># three_waves</span></span><br><span class="line"><span class="attr">three_waves:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_lines</span></span><br><span class="line"><span class="attr">canvas_lines:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># canvas_sphere</span></span><br><span class="line"><span class="attr">canvas_sphere:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>asd</p>
 <h2 id="20-首页文章列表鼠标上移样式"><a href="#20-首页文章列表鼠标上移样式" class="headerlink" title="20. 首页文章列表鼠标上移样式"></a>20. 首页文章列表鼠标上移样式</h2><p>打开<code>\themes\next\source\css\_custom\custom.styl</code>，向里面加入：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 主页文章添加阴影效果</span></span><br><span class="line"><span class="selector-class">.post</span> &#123;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">    transition: box-shadow .3s;</span><br><span class="line">    &amp;:hover&#123;</span><br><span class="line">        <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">6px</span> <span class="number">8px</span> <span class="number">6px</span> rgba(<span class="number">202</span>,<span class="number">203</span>,<span class="number">203</span>,<span class="number">0.5</span>);</span><br><span class="line">        -webkit-<span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">6px</span> <span class="number">8px</span> <span class="number">6px</span> rgba(<span class="number">202</span>,<span class="number">203</span>,<span class="number">203</span>,<span class="number">0.5</span>);</span><br><span class="line">        -moz-<span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">6px</span> <span class="number">8px</span> <span class="number">6px</span> rgba(<span class="number">202</span>,<span class="number">203</span>,<span class="number">203</span>,<span class="number">0.5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>asd</p>
 <h2 id="21-去掉文章目录自动生成的编号"><a href="#21-去掉文章目录自动生成的编号" class="headerlink" title="21. 去掉文章目录自动生成的编号"></a>21. 去掉文章目录自动生成的编号</h2><p>打开主题配置文件<code>/theme/next/_config.yml</code>修改配置如下：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Automatically add list number to toc.</span></span><br><span class="line"><span class="attr"> number:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>asd</p>
 <h2 id="22-文章头部添加【天气】"><a href="#22-文章头部添加【天气】" class="headerlink" title="22. 文章头部添加【天气】"></a>22. 文章头部添加【天气】</h2><p>打开<code>\themes\next\layout\_macro\post.swig</code>，在合适位置加入：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if post.weather%&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-divider"</span>&gt;</span>|<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"post-meta-item-text"</span>&gt;</span>天气：<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123; post.weather &#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 <p>在写博文时，需要在头部新增<code>weather</code>字段</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">title: </span><br><span class="line">tags: </span><br><span class="line">    - 1</span><br><span class="line">    - 2</span><br><span class="line">categories: </span><br><span class="line">weather: 晴</span><br><span class="line">date: 2017-01-13 16:07:32</span><br><span class="line">copyright: true</span><br><span class="line">password:</span><br></pre></td></tr></table></figure>
+<p>asd</p>
 
       
     </div>
@@ -663,7 +675,7 @@
   <p><span>本文标题:</span><a href="/2019/08/21/Hexo使用Next主题的配置/">Hexo使用Next主题的配置</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 老米的世界 的个人博客">老米的世界</a></p>
   <p><span>发布时间:</span>2019年08月21日 - 00:00</p>
-  <p><span>最后更新:</span>2019年09月05日 - 22:06</p>
+  <p><span>最后更新:</span>2019年10月24日 - 16:59</p>
   <p><span>原始链接:</span><a href="/2019/08/21/Hexo使用Next主题的配置/" title="Hexo使用Next主题的配置">http://mpfly.github.io/2019/08/21/Hexo使用Next主题的配置/</a>
     <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://mpfly.github.io/2019/08/21/Hexo使用Next主题的配置/" aria-label="复制成功！"></i></span>
   </p>
@@ -840,7 +852,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">91</span>
+                  <span class="site-state-item-count">92</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -851,7 +863,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -862,7 +874,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -965,7 +977,7 @@
         
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -979,7 +991,7 @@
     
       <span class="post-meta-item-text">博客全站共&#58;</span>
     
-    <span title="博客全站共">82.7k</span>
+    <span title="博客全站共">83.1k</span>
   
 </div>
 
