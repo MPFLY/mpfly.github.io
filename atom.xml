@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mpfly.github.io/"/>
-  <updated>2021-07-02T06:20:23.842Z</updated>
+  <updated>2021-07-03T05:45:15.536Z</updated>
   <id>http://mpfly.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue全局组件的注册与使用</title>
+    <link href="http://mpfly.github.io/2021/07/03/Vue%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://mpfly.github.io/2021/07/03/Vue全局组件的使用/</id>
+    <published>2021-07-03T03:07:32.000Z</published>
+    <updated>2021-07-03T05:45:15.536Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天我们来探究一下Vue全局组件的注册与使用。基于个人的开发经验，全局组件相比局部组件来说，使用的频率还是低不少的。所以在全局组件的使用上，我个人来说比较模糊，遂打算一探究竟，并记录下来。</p><h4 id="第1步"><a href="#第1步" class="headerlink" title="第1步"></a>第1步</h4><p>我们先写一个全局组件，以供使用。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// now-time.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    当前时间为:&#123;&#123; nowTime &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      nowTime: new Date()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure><h4 id="第2步"><a href="#第2步" class="headerlink" title="第2步"></a>第2步</h4><p>对全局组件进行注册。在此我们有两种注册方式。</p><blockquote><p>以下代码均写在<code>main.js</code>中</p></blockquote><h5 id="第一种注册方式："><a href="#第一种注册方式：" class="headerlink" title="第一种注册方式："></a>第一种注册方式：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入组件文件</span></span><br><span class="line"><span class="keyword">import</span> NowTime <span class="keyword">from</span> <span class="string">'./components/NowTime/now-time.vue'</span></span><br><span class="line"><span class="comment">// 直接使用Vue.component 对组件进行注册, 该组件名就是 Vue.component 的第一个参数</span></span><br><span class="line">Vue.component(<span class="string">'now-time'</span>, NowTime)</span><br></pre></td></tr></table></figure><p>注册过后，即可在任意页面直接使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 任意页面.vue --&gt;</span><br><span class="line">&lt;now-time&gt;&lt;/now-time&gt;</span><br></pre></td></tr></table></figure><h5 id="第二种注册方式："><a href="#第二种注册方式：" class="headerlink" title="第二种注册方式："></a>第二种注册方式：</h5><p>我们需要在<code>NowTime</code>文件夹下新建一个<code>index.js</code>文件，文件目录如下：</p><p><a href="https://imgtu.com/i/Rgbc3n" target="_blank" rel="noopener"><img src="https://z3.ax1x.com/2021/07/03/Rgbc3n.png" alt="Rgbc3n.png"></a></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> NowTime <span class="keyword">from</span> <span class="string">'./now-time.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> NowTimeComponent = &#123;</span><br><span class="line">  install: <span class="function">(<span class="params">Vue</span>) =&gt;</span> &#123;</span><br><span class="line">    Vue.component(<span class="string">'now-time'</span>, NowTime)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> NowTimeComponent</span><br></pre></td></tr></table></figure><p>然后在<code>main.js</code>文件中进行注册</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> NowTime <span class="keyword">from</span> <span class="string">'./components/NowTime/index.js'</span></span><br><span class="line">Vue.use(NowTime)</span><br></pre></td></tr></table></figure><p>注册完成即可在任意页面使用了。</p><p>可能有的同学会问，这第二种注册方式看起来比第一种繁琐多了，还得写一个<code>index.js</code>，为什么要用这种呢？</p><p>接下来我们说说这第二种注册方式的优点：它可以在注册组件的时候，给组件传入一些通用的属性。例如：字体大小、颜色等。具体看如下代码：</p><p>我们在组件中设置字体颜色，颜色来源为<code>this.$NOWTIME.color</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// now-time.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div :style=&quot;&#123; color: color&#125;&quot;&gt;</span><br><span class="line">    当前时间为:&#123;&#123; nowTime &#125;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      nowTime: new Date(),</span><br><span class="line">      color: this.$NOWTIME.color</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure><p>在<code>index.js</code>中的<code>install()</code>方法的第一个参数为<code>Vue</code>实例，第二个参数为我们在注册时传入的参数。在此处是一个对象，我们可在该对象中设置一些具体的属性。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">import</span> NowTime <span class="keyword">from</span> <span class="string">'./now-time.vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> NowTimeComponent = &#123;</span><br><span class="line">  install: <span class="function">(<span class="params">Vue, otps = &#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">    Vue.component(<span class="string">'now-time'</span>, NowTime)</span><br><span class="line">    Vue.prototype.$NOWTIME = &#123;</span><br><span class="line">      color: otps.color || <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> NowTimeComponent</span><br></pre></td></tr></table></figure><p>在<code>main.js</code>中注册组件，在<code>Vue.use()</code>方法中传入参数，此处传入<code>color: &#39;blue&#39;</code>，组件的字体颜色即为<code>blue</code></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> NowTime <span class="keyword">from</span> <span class="string">'./components/NowTime/index.js'</span></span><br><span class="line">Vue.use(NowTime, &#123;</span><br><span class="line">  color: <span class="string">'blue'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><blockquote><p>记住<strong>全局注册的行为必须在根 Vue 实例 (通过 <code>new Vue</code>) 创建之前发生</strong></p></blockquote><blockquote><p>全局注册往往是不够理想的。比如，如果你使用一个像 webpack 这样的构建系统，全局注册所有的组件意味着即便你已经不再使用一个组件了，它仍然会被包含在你最终的构建结果中。这造成了用户下载的 JavaScript 的无谓的增加。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天我们来探究一下Vue全局组件的注册与使用。基于个人的开发经验，全局组件相比局部组件来说，使用的频率还是低不少的。所以在全局组件的使用上，我个人来说比较模糊，遂打算一探究竟，并记录下来。&lt;/p&gt;
+&lt;h4 id=&quot;第1步&quot;&gt;&lt;a href=&quot;#第1步&quot; class=&quot;hea
+      
+    
+    </summary>
+    
+      <category term="vue" scheme="http://mpfly.github.io/categories/vue/"/>
+    
+    
+      <category term="Vue" scheme="http://mpfly.github.io/tags/Vue/"/>
+    
+      <category term="全局组件" scheme="http://mpfly.github.io/tags/%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>js新特性</title>
@@ -524,34 +552,6 @@
     
       <category term="行车日常" scheme="http://mpfly.github.io/categories/%E8%A1%8C%E8%BD%A6%E6%97%A5%E5%B8%B8/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>《人类简史》 - 笔记</title>
-    <link href="http://mpfly.github.io/2019/06/10/%E3%80%8A%E4%BA%BA%E7%B1%BB%E7%AE%80%E5%8F%B2%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
-    <id>http://mpfly.github.io/2019/06/10/《人类简史》笔记/</id>
-    <published>2019-06-09T16:00:00.000Z</published>
-    <updated>2019-09-05T14:06:13.320Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h4><ul><li><p>现代人的祖先是智人。</p></li><li><p>人类进化出容量大的大脑，可以更好的“思考”。但是到目前为止，人类为什么会进化出大容量的大脑，我们也并不知道。</p><p>庞大的大脑是个庞大的负担：</p><ul><li>大脑结构脆弱，需要有头骨保护。</li><li>即使在休息的时候，大脑依旧会消耗大量能量。</li></ul></li><li><p>人类直立行走</p><p>优点：</p><ul><li>获得更大更远的视野</li><li>解放手，让手可以发挥其他用途</li></ul><p>缺点：</p><ul><li>人体结构上不合理，时间长之后会受到背痛、脖子僵硬的困扰</li><li>直立行走让臀部变窄，而人类的头越来越大，分娩风险变大。</li><li>为了减小分娩风险，人类不得不在婴儿头部很小、很软的时候就脱离母体，让大脑剩余的发育在母亲体外进行。这也导致一个孩子需要很多成年人共同照顾。</li></ul></li><li><p>人类使用火</p><ul><li>改变环境：烧掉难以通行的丛林转变为大片的原野</li><li>保护自己：取暖、吓跑野兽</li><li>烹饪食物：<ul><li>食物种类更多了，并且可以杀死其中的病菌。</li><li>食物被烹饪后，减少了人类咀嚼和消化的时间。</li><li>减短消化道长度、降低能量消耗，可以使大脑获得更多能量。</li></ul></li></ul></li><li><p>在历史的路上，有三大重要革命：</p><ul><li><p>大约7万年前，“认知革命“让历史正式启动。</p></li><li><p>大约12000年前，“农业革命“让历史加速发展。</p></li><li><p>大约500年前,“科学革命“可以说是让历史画下句点而另创新局。</p><p>这本书的内容，讲述的就是这三大革命如何改变了人类和其他生物。</p></li></ul></li><li><p>智人之所以能征服世界，是因为有独特的语言。</p></li></ul><h4 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h4><ul><li><p>人类语言真正最独特的功能，是能够传达并且<strong>相信</strong>一些根本不存在的事物的信息。然后一起去想象并编织种种虚构的故事，这样的虚构故事赋予智人前所未有的能力,让我们得以集结大批人力、灵活合作。</p></li><li><p>“八卦”是维系自然团体的力量。等到认知革命之后,智人有了八卦的能力,于是部落规模变得更大,也更稳定。然而,八卦也有限制。社会学研究指出,借由八卦来维持的最大“自然“团体大约是150人。只要超过这个数字,大多数人就无法真正深入了解、八卦所有成员的生活情形。</p></li><li>智人通过创造虚构的故事，就算是大批互不相识的人，只要同样相信某个故事,就能共同合作。最后创造出了有数万居民的城市、有上亿人口的帝国。例如：国家、法律、公司、宗教等。</li></ul><p><img src="http://book.img.ireader.com/group6/M00/19/E4/CmRaelsiIF-EYINSAAAAAHb6M0M733040776.png?v=QGk7Kw5T&amp;t=CmRaeluvV1g." alt></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;第一章&quot;&gt;&lt;a href=&quot;#第一章&quot; class=&quot;headerlink&quot; title=&quot;第一章&quot;&gt;&lt;/a&gt;第一章&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;现代人的祖先是智人。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;人类进化出容量大的大脑，可以更好的“思考”。但是到目前为止
-      
-    
-    </summary>
-    
-      <category term="读书笔记" scheme="http://mpfly.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="读书笔记" scheme="http://mpfly.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
