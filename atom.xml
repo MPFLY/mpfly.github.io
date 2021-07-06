@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://mpfly.github.io/"/>
-  <updated>2021-07-03T05:45:15.536Z</updated>
+  <updated>2021-07-06T02:52:36.681Z</updated>
   <id>http://mpfly.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>promise和async-await的区别</title>
+    <link href="http://mpfly.github.io/2021/07/06/promise%E5%92%8Casync-await%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://mpfly.github.io/2021/07/06/promise和async-await的区别/</id>
+    <published>2021-07-06T01:49:00.000Z</published>
+    <updated>2021-07-06T02:52:36.681Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天手机上的Boss直聘突然弹出个消息： “promise和async-await有什么区别?”。</p><p>打开手机后，看了各路大神各抒己见，于是自己也找了找资料，以下是自己的总结和各路大神的回答。</p><h3 id="1-关于async-await的"><a href="#1-关于async-await的" class="headerlink" title="1. 关于async-await的"></a>1. 关于async-await的</h3><p>以下均摘自<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank" rel="noopener">MDN</a></p><blockquote><p>async函数是使用<code>async</code>关键字声明的函数。 async函数是<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/AsyncFunction" target="_blank" rel="noopener"><code>AsyncFunction</code></a>构造函数的实例， 并且其中允许使用<code>await</code>关键字。<code>async</code>和<code>await</code>关键字让我们可以用一种更简洁的方式写出基于<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener"><code>Promise</code></a>的异步行为，而无需刻意地链式调用<code>promise</code>。</p></blockquote><blockquote><p>async函数可能包含0个或者多个<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/await" target="_blank" rel="noopener"><code>await</code></a>表达式。await表达式会暂停整个async函数的执行进程并出让其控制权，只有当其等待的基于promise的异步操作被兑现或被拒绝之后才会恢复进程。promise的解决值会被当作该await表达式的返回值。使用<code>async</code> / <code>await</code>关键字就可以在异步代码中使用普通的<code>try</code> / <code>catch</code>代码块。</p></blockquote><blockquote><p><code>await</code>关键字只在async函数内有效。如果你在async函数体之外使用它，就会抛出语法错误 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError" target="_blank" rel="noopener"><code>SyntaxError</code></a> 。</p></blockquote><blockquote><p><code>async</code>/<code>await</code>的目的为了简化使用基于promise的API时所需的语法。<code>async</code>/<code>await</code>的行为就好像搭配使用了生成器和promise。</p></blockquote><blockquote><p>async函数一定会返回一个promise对象。如果一个async函数的返回值看起来不是promise，那么它将会被隐式地包装在一个promise中。</p></blockquote><h3 id="2-关于Promise的"><a href="#2-关于Promise的" class="headerlink" title="2. 关于Promise的"></a>2. 关于Promise的</h3><blockquote><p><code>promise</code>的精髓是状态的传递，方法的封装者并不需要关心异步方法的执行结果，方法的封装者通过状态传递拿到执行结果书写自己的逻辑，使得封装者与使用者的真正解耦。</p><p>这种状态传递有种发布订阅的味道，回调地狱并非书写上的地狱而诟病，promise 的链式调用也会有<strong>地狱</strong>之感，而回调地狱真正为之诟病的是没有真正解耦。<strong>async 是 promise 的语法糖</strong>。</p></blockquote><blockquote><p>在 Promise 为出现之前，我们用回调函数来编写异步程序，来满足日常开发的异步需求。随着前端的发展，代码的日益增多，逻辑逐渐复杂，大量使用回调函数的代码，让程序员开始头疼。代码可读性低、维护困难、大量前台回调函数，看的程序员是直接怀疑人生。 </p><p>为了解决工程师们面临的这个问题，Promise 诞生了。它提供了一些 API，让工程师们可以用一种新的方式来编写异步程序。通过 then 方法来写异步程序执行成功后执行的代码，用 catch 方法来捕捉异常，而且可以链式调用。 函数地狱和回调函数造成的程序可读性差的问题，被解决了，小伙伴们又可以快乐的编程了。</p><p>等等，似乎还有个问题没有被解决。在使用 Promise 的时候，可能会一个 Promise 中有多个 Promise。如果是多个独立的 Promise，可以用 Promise. all 来解决，但是它们之间如果彼此之间有依赖关系，需要有特定的执行顺序，这个时候 Promise 就无法解决了。 Promise 也遇到问题了，怎么办，该怎么解决呢？</p><p>就在工程师们发愁的时候，Async/Await“脚踏七彩祥云”出现在了工程师面前，说到：“你的问题我来解决”。 Async/Await 允许异步程序用同步的方式执行，这样两个异步且有依赖关系的程序不仅可以按照先后顺序执行，而且对于其它同步程序来说，它仍然是异步的，不会阻塞主线程。 就这样 Promise 产生的问题，被 Async/Await 解决了，工程师们终于可以放心大胆的去写程序了。 </p><p>最后说一下，Async/Await 是在 Promise 的基础上实现的，它的返回值仍然是一个 Promise，所以工程师们仍然可以链式的使用 then 或 catch 等 API。 </p></blockquote><h3 id="3-相同点"><a href="#3-相同点" class="headerlink" title="3. 相同点"></a>3. 相同点</h3><ol><li><code>Promise</code>和 <code>async-await</code> 都是优化异步编程体验的解决方案。</li></ol><h3 id="4-不同点"><a href="#4-不同点" class="headerlink" title="4.不同点"></a>4.不同点</h3><ol><li><p><code>Promise</code> 是应用层的解决方案，它有一个规范，不同的语言也可以实现，它只能异步的处理错误，在<code>js</code> 里它本质上是一个对象。</p></li><li><p><code>async-await</code> 是语言层的解决方案，它可以说是 <code>Promise</code>的补充，可以让用户像编写同步代码一样编写异步代码，通过<code>try-catch</code> 可以同步地处理错误。</p></li><li><code>Promise</code> 更多应用在函数封装中，<code>async</code>用在函数的使用中。</li><li><code>Promise</code>链式调用相当于一个新的回调地狱， 也不能统一处理异常。 <code>Promise</code> 本身是同步函数，多个不会等待。</li><li><code>async-await</code>用同步的写法使得可读性更强，同时方便 <code>try-catch</code> 捕获异常， <code>async-await</code> 有明确的前后关系，可读性好。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天手机上的Boss直聘突然弹出个消息： “promise和async-await有什么区别?”。&lt;/p&gt;
+&lt;p&gt;打开手机后，看了各路大神各抒己见，于是自己也找了找资料，以下是自己的总结和各路大神的回答。&lt;/p&gt;
+&lt;h3 id=&quot;1-关于async-await的&quot;&gt;&lt;a h
+      
+    
+    </summary>
+    
+      <category term="JS" scheme="http://mpfly.github.io/categories/JS/"/>
+    
+    
+      <category term="js基础" scheme="http://mpfly.github.io/tags/js%E5%9F%BA%E7%A1%80/"/>
+    
+      <category term="promise async/await" scheme="http://mpfly.github.io/tags/promise-async-await/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue全局组件的注册与使用</title>
@@ -528,30 +557,6 @@
     
     
       <category term="VSCode" scheme="http://mpfly.github.io/tags/VSCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机油知识总结</title>
-    <link href="http://mpfly.github.io/2019/06/17/%E6%9C%BA%E6%B2%B9%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    <id>http://mpfly.github.io/2019/06/17/机油知识总结/</id>
-    <published>2019-06-16T16:00:00.000Z</published>
-    <updated>2019-09-05T14:06:13.338Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="1-机油标号"><a href="#1-机油标号" class="headerlink" title="1. 机油标号"></a>1. 机油标号</h3><p>举例：<strong>SN 0W 40</strong></p><p>想选对机油，就要先了解机油，<strong>每桶机油包装都明显的印着机油的标号</strong>，抛开品牌，我们以SN 0W-40的机油来举例。前面的SN。这是美国石油协会的标准等级，简称API。S代表汽油发动机用油，如果这个字母变成C，那么则代表是柴油发动机用油，千万别加混了！！！</p><p>有时还会S和C一起出现，那么就代表汽油发动机和柴油发动机都可以使用，不过这种并不多见。S后边的N，则表示的是机油等级，从A一直到N，字幕越靠后等级越高。有些机油则印的是A几B几，比如A3/B4，可以理解为这是欧版的等级标准，A是汽油机，B是轻型柴油机，后边的数字越大，则代表机油等级越高，目前最高等级为5。</p><h3 id="2-对应温度与粘稠度"><a href="#2-对应温度与粘稠度" class="headerlink" title="2. 对应温度与粘稠度"></a>2. 对应温度与粘稠度</h3><p>后边的0W-40，<strong>W是winter（冬天）的缩写</strong>，W前面的数字代表丧失流动性的温度，数字越小，那么就能在越低温度的环境下使用。0W对应的是-35°，5W是-30°以此类推。在选择机油的时候，可以考虑一下用车环境。后边的40，则是机油的粘稠度，数字低流动性好，粘稠度低，数字大则粘稠度高。同品牌机油标号跨度越大，价格也就越高。</p><p>机油尽量<strong>选择恰当的标号</strong>，太高流动性差发动机的运动阻力也会变大，增加油耗。机油泵的效率也会变低，降低润滑效果。粘稠度太低附着力相对弱，增加不必要的磨损，还可能烧机油。</p><p>在车主手册上，都会清楚的写着推荐使用的机油标号。但也可以根据自己的情况进行小调整，<strong>经常暴力驾驶，发动机温度比较高，机油会相对变稀。或者轻微烧机油</strong>、老车可以适当的把粘稠度调高，减少发动机磨损。比如从0W-20调整到0W-30。正常车辆加错标号粘稠度相差大于等于两个级别，就赶紧换回来。</p><h3 id="3-矿物油、半合成、全合成的区别"><a href="#3-矿物油、半合成、全合成的区别" class="headerlink" title="3. 矿物油、半合成、全合成的区别"></a>3. 矿物油、半合成、全合成的区别</h3><ul><li>矿物油等级会便宜一点，是石油提炼的矿物油再添加了添加剂生产出来的。矿物油各项的性能都不是很高，<strong>使用里程较短</strong>，但价格便宜一般都会用在经济型车上。</li></ul><ul><li><strong>半合成机油则是由矿物油的基础，经过加氢裂变技术提纯后的产物</strong>，可以理解为矿物油和全合成机油4：6的比例混合。比矿物油各项性能都上升一个等级，使用里程会增加很多，但价格也会随之提高。10万左右售价的车型里，很多都使用的是半合成机油。</li></ul><ul><li><strong>全合成机油则各项性能都要提升很多</strong>，是目前<strong>机油里的“大哥”</strong>了，是人工调配的高质量机油。稳定性、持久性等等各项性能都优于矿物和半合成机油。从理论上来说，任何车型都适合加全合成机油。但全合成机油的价格普遍偏高。</li></ul><h3 id="4-品牌选择"><a href="#4-品牌选择" class="headerlink" title="4. 品牌选择"></a>4. 品牌选择</h3><p>市场上比较主流的壳牌、嘉实多、美孚等等只要是真货，同标号实际的使用效果相差并不多。只要是真货，都可以放心的选择。别迷信赛车用油，很多赛车油都是为了长期高温环境下使用的，或者粘稠度很高，实际使用里程可能还不如普通机油，很多都是用一次就换掉了，不适合家用。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;1-机油标号&quot;&gt;&lt;a href=&quot;#1-机油标号&quot; class=&quot;headerlink&quot; title=&quot;1. 机油标号&quot;&gt;&lt;/a&gt;1. 机油标号&lt;/h3&gt;&lt;p&gt;举例：&lt;strong&gt;SN 0W 40&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;想选对机油，就要先了解机油，&lt;s
-      
-    
-    </summary>
-    
-      <category term="行车日常" scheme="http://mpfly.github.io/categories/%E8%A1%8C%E8%BD%A6%E6%97%A5%E5%B8%B8/"/>
-    
     
   </entry>
   
